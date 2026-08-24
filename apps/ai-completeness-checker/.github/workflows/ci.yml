@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install core-py
+        working-directory: packages/core-py
+        run: pip install -e ".[dev]"
+      - name: Run tests
+        working-directory: packages/core-py
+        run: pytest -v
+
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install sdk-ts
+        working-directory: packages/sdk-ts
+        run: npm install
+      - name: Typecheck
+        working-directory: packages/sdk-ts
+        run: npx tsc -p tsconfig.json --noEmit

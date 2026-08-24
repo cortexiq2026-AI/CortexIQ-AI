@@ -1,13 +1,39 @@
 # AI Answer Auditor
 
-A post-generation **verification layer** for LLM output. Drop it after any model
-in your pipeline (Copilot, Gemini, GPT, Claude, a local model, whatever) and it
-will decompose the answer into individual claims, check them against your own
-source material, spot-check the rest against the open web, flag contradictions,
-and return a structured trust score instead of a blind "looks fine."
+**A post-generation fact-checking layer that scores any LLM answer for trust — claim by claim — instead of taking it on faith.**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI](https://github.com/YOUR_USERNAME/ai-answer-auditor/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/ai-answer-auditor/actions/workflows/ci.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![PyPI version](https://img.shields.io/badge/version-0.1.0-blue.svg)](packages/core-py/pyproject.toml)
+[![npm version](https://img.shields.io/badge/npm-0.1.0-blue.svg)](packages/sdk-ts/package.json)
+
+<!--
+  Add a screenshot or terminal GIF here once you have one, e.g.:
+  ![AI Answer Auditor demo](docs/assets/demo.gif)
+  A simple way to make one: run examples/python_quickstart.py in a terminal
+  and record it with https://github.com/charmbracelet/vhs or asciinema + agg.
+-->
+
+Drop it after any model in your pipeline (Copilot, Gemini, GPT, Claude, a
+local model, whatever) and it decomposes the answer into individual claims,
+checks them against your own source material, spot-checks the rest against
+the open web, flags contradictions, and returns a structured trust score
+instead of a blind "looks fine."
 
 ```
 user -> your AI -> answer -> AI Answer Auditor -> verified answer + audit report
+```
+
+## Quick start
+
+```bash
+pip install -e packages/core-py
+```
+```python
+from ai_answer_auditor import Auditor
+report = await Auditor().audit(answer="The Eiffel Tower was completed in 1889.")
+print(report.verification_score, report.summary)
 ```
 
 This is **not** a hallucination-proof oracle. It's a second pass of scrutiny —
@@ -153,3 +179,21 @@ console.log(report.verification_score, report.contradicted_claims);
 ## License
 
 MIT — see [`LICENSE`](LICENSE).
+
+## Repo setup checklist (for maintainers)
+
+A few things live in GitHub's UI/settings rather than in this repo's files —
+worth doing once, right after creating the repo:
+
+- **About section** (top-right of the repo page, gear icon): add a
+  one-line description and, once you have one, a demo URL.
+- **Topics**: add tags so the repo surfaces in GitHub topic search, e.g.
+  `llm`, `ai`, `fact-checking`, `hallucination-detection`, `rag`,
+  `verification`, `mcp`, `agent-tools`, `python`, `typescript`.
+- **Badges above**: replace `YOUR_USERNAME` in the CI badge URL with your
+  actual GitHub username/org once pushed, so it points at your own Actions
+  run instead of a placeholder.
+- **Demo GIF/screenshot**: run `examples/python_quickstart.py`, record it
+  (e.g. [vhs](https://github.com/charmbracelet/vhs) or asciinema + agg),
+  drop it at `docs/assets/demo.gif`, and uncomment the image line near the
+  top of this README.

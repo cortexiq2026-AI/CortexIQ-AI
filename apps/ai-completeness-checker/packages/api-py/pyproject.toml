@@ -1,0 +1,17 @@
+[project]
+name = "ai-completeness-checker-api"
+version = "0.1.0"
+description = "FastAPI service wrapper exposing AI Completeness Checker over HTTP."
+requires-python = ">=3.10"
+dependencies = [
+    "ai-completeness-checker",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.29.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main"]
