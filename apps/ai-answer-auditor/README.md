@@ -180,20 +180,4 @@ console.log(report.verification_score, report.contradicted_claims);
 
 MIT — see [`LICENSE`](LICENSE).
 
-## Repo setup checklist (for maintainers)
 
-A few things live in GitHub's UI/settings rather than in this repo's files —
-worth doing once, right after creating the repo:
-
-- **About section** (top-right of the repo page, gear icon): add a
-  one-line description and, once you have one, a demo URL.
-- **Topics**: add tags so the repo surfaces in GitHub topic search, e.g.
-  `llm`, `ai`, `fact-checking`, `hallucination-detection`, `rag`,
-  `verification`, `mcp`, `agent-tools`, `python`, `typescript`.
-- **Badges above**: replace `YOUR_USERNAME` in the CI badge URL with your
-  actual GitHub username/org once pushed, so it points at your own Actions
-  run instead of a placeholder.
-- **Demo GIF/screenshot**: run `examples/python_quickstart.py`, record it
-  (e.g. [vhs](https://github.com/charmbracelet/vhs) or asciinema + agg),
-  drop it at `docs/assets/demo.gif`, and uncomment the image line near the
-  top of this README.
