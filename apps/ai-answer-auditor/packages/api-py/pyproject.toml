@@ -1,0 +1,17 @@
+[project]
+name = "ai-answer-auditor-api"
+version = "0.1.0"
+description = "FastAPI service wrapper exposing AI Answer Auditor over HTTP."
+requires-python = ">=3.10"
+dependencies = [
+    "ai-answer-auditor",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.29.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main"]
