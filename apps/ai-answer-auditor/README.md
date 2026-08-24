@@ -3,7 +3,7 @@
 **A post-generation fact-checking layer that scores any LLM answer for trust — claim by claim — instead of taking it on faith.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![CI](https://github.com/YOUR_USERNAME/ai-answer-auditor/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/ai-answer-auditor/actions/workflows/ci.yml)
+[![CI](https://github.com/cortexiq2026-AI/CortexIQ-AI/tree/main/apps/ai-answer-auditor/actions/workflows/ci.yml/badge.svg)](https://github.com/cortexiq2026-AI/CortexIQ-AI/tree/main/apps/ai-answer-auditor/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyPI version](https://img.shields.io/badge/version-0.1.0-blue.svg)](packages/core-py/pyproject.toml)
 [![npm version](https://img.shields.io/badge/npm-0.1.0-blue.svg)](packages/sdk-ts/package.json)
